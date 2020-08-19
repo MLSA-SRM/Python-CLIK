@@ -70,7 +70,8 @@ def encryption(key, filename):
         print (e)
         return False
     return True
-        
+
+# decrypting file using key
 def decryption(key, filename):
     try:
         with open(filename,'rb') as f:
@@ -86,7 +87,8 @@ def decryption(key, filename):
         print(e)
         return False
     return True
-          
+
+# test functions
 print(storeKey(keygen()))
 encryption(getKey(), 'test_data/test_api_keys.json')
 decryption(getKey(), 'test_data/test_api_keys.json')
