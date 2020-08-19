@@ -1,10 +1,18 @@
 from printy import printy, inputy
-import os
+import os, sys
+
+
 
 # Mode Variables---------------------------
 DEBUG_MODE = True
-STORAGE_DIR = os.path.expanduser ('~\\clik-safety-keys')
 #------------------------------------------
+
+# check for Windows, else use normal file path conevention
+if sys.platform == 'win32':
+    STORAGE_DIR = os.path.expanduser ('~\clik-safety-keys')
+else:
+    STORAGE_DIR = os.path.expanduser ('~/clik-safety-keys')
+
 
 # class for handling CLI messages
 class _message:
@@ -65,12 +73,12 @@ def init_default_key_storage ():
     return True
 
 # test functions
-# message.success ('Yep')
-# message.error ('Nope')
-# message.prompt ('Prompt')
+message.success ('Yep')
+message.error ('Nope')
+message.prompt ('Prompt')
 
-# debug.success ('Yep')
-# debug.error ('Nope')
-# debug.prompt ('Prompt')
+debug.success ('Yep')
+debug.error ('Nope')
+debug.prompt ('Prompt')
 
-# print(init_default_key_storage())
+print(init_default_key_storage())
