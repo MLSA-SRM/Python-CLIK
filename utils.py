@@ -65,12 +65,12 @@ def init_default_key_storage ():
     return True
 
 # test functions
-# message.success ('Yep')
-# message.error ('Nope')
-# message.prompt ('Prompt')
+#message.success ('This is in green  ')
+#message.error ('This is in red')
+#message.prompt ('This is in blue')
 
-# debug.success ('Yep')
-# debug.error ('Nope')
-# debug.prompt ('Prompt')
+#debug.success ('Yep')
+#debug.error ('Nope')
+#debug.prompt ('Prompt')
 
 # print(init_default_key_storage())

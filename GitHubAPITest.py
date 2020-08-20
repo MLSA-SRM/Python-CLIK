@@ -1,3 +1,4 @@
+from utils import *
 import requests
 import json
 
@@ -12,16 +13,15 @@ def showRepos(username,apitoken):
         p = r.json()
         q = json.dumps(p, indent=4, sort_keys=True)
         dictVal = json.loads(q)
-        info = str(r)
-        repCode = "<Response [200]>"
-        if(info == repCode):
+    
+        if(r.status_code == 200):
             return dictVal
         else:
-            print("Sorry! Try again after passing correct credentials!")
+            message.error ('Sorry! Try Again after entering correct credentials!')
             return False
     except:
-        print("Sorry! Try again after passing correct credentials!")
+        message.error ('Sorry! Try Again after entering correct credentials!')
         return False
 
-showRepos("usernamehere","personalaccesstokenhere")
+showRepos("usernamehere","apitokenhere")
 
