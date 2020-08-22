@@ -3,7 +3,7 @@ import os
 
 # Mode Variables---------------------------
 DEBUG_MODE = True
-STORAGE_DIR = os.path.expanduser ('~\\clik-safety-keys')
+STORAGE_DIR = os.path.expanduser ('~/clik-safety-keys')
 #------------------------------------------
 
 # class for handling CLI messages
@@ -50,7 +50,7 @@ message = _message ()
 debug = _debug (DEBUG_MODE)
 
 def init_default_key_storage ():
-    storageInit = os.path.join (STORAGE_DIR, '\\readme.txt')
+    storageInit = os.path.join (STORAGE_DIR, '/readme.txt')
     if os.path.exists (STORAGE_DIR):
         message.success ('Default key storage is initialised at ' + STORAGE_DIR)
     else:
@@ -65,12 +65,12 @@ def init_default_key_storage ():
     return True
 
 # test functions
-# message.success ('Yep')
-# message.error ('Nope')
-# message.prompt ('Prompt')
+#message.success ('This is in green  ')
+#message.error ('This is in red')
+#message.prompt ('This is in blue')
 
-# debug.success ('Yep')
-# debug.error ('Nope')
-# debug.prompt ('Prompt')
+#debug.success ('Yep')
+#debug.error ('Nope')
+#debug.prompt ('Prompt')
 
 # print(init_default_key_storage())
