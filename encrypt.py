@@ -1,4 +1,4 @@
-from utils import message, debug, init_default_key_storage, STORAGE_DIR
+from utils import message, debug, init_default_key_storage, STORAGE_DIR, STORE_KEY_F
 from printy import raw_format
 from cryptography.fernet import Fernet
 import os
@@ -16,7 +16,7 @@ def keygen():
     return key.decode('utf-8')
 
 # storing the generated key to default/specified filename
-def storeKey(key, filename = os.path.basename(os.getcwd())):
+def storeKey(key, filename = STORE_KEY_F):
     storeTo = os.path.join (STORAGE_DIR, filename) + "_keys.key"
     if init_default_key_storage():
         try:
@@ -34,7 +34,7 @@ def storeKey(key, filename = os.path.basename(os.getcwd())):
         return False
 
 # retrieve key from specified filename
-def getKey(filename = os.path.basename(os.getcwd())):
+def getKey(filename = STORE_KEY_F):
     getFrom = os.path.join (STORAGE_DIR, filename) + "_keys.key"
     if init_default_key_storage():
         try:
@@ -89,6 +89,6 @@ def decryption(key, filename):
     return True
 
 # test functions
-print(storeKey(keygen()))
-encryption(getKey(), 'test_data/test_api_keys.json')
-decryption(getKey(), 'test_data/test_api_keys.json')
+#print(storeKey(keygen()))
+#encryption(getKey(), 'test_data/test_api_keys.json')
+#decryption(getKey(), 'test_data/test_api_keys.json')
