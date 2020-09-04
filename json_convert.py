@@ -17,12 +17,12 @@ api_val = {
 
 #function to convert JSON to dictionary and print
 def jsonToDict(filename):
-    try:
+    #try:
         with open(filename,'r') as fh:
             json_str = fh.read()
             json_value = json.loads(json_str)
         return json_value
-    except:
+    #except:
         return False
 
 
@@ -32,7 +32,7 @@ def dictToJson(inputDict, filename, indents=2):
         with open(filename, 'w') as fh2:
             fh2.write(json.dumps(inputDict, indent=indents, sort_keys=True))
         message.success('Keys stored successfully')
-        return True
+        return True 
     except Exception as e:
         message.error('Couldn\'t write to JSON')
         debug.error(str(e))
@@ -49,6 +49,7 @@ def display_json (filename, display_indent=4):
         debug.error('JSON to Dict Failed')
 
 #calling the functions
-# jsonToDict('test_data/apikeys.json')
+
+#print(jsonToDict('test_data/test_api_keys.json'))
 # dictToJson(api_val,'test_data/test_api_keys.json')
-# display_json ('test_data/test_api_keys.json')
+#display_json ('test_data/test_api_keys.json')
