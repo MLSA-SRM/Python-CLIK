@@ -1,9 +1,11 @@
 from printy import printy, inputy
 import os
+import sys
 
 # Mode Variables---------------------------
 DEBUG_MODE = True
 STORAGE_DIR = os.path.expanduser ('~/clik-safety-keys')
+STORE_KEY_F = os.path.basename(os.getcwd())
 #------------------------------------------
 
 # class for handling CLI messages
@@ -21,6 +23,10 @@ class _message:
     def prompt (self, msg):
         thisInput = inputy ('[c]\[clik:prt\]@ ' + msg + '> ')
         return thisInput
+    
+    def delete_last (self):
+        sys.stdout. write("\033[F") #back to previous line.
+        sys.stdout. write("\033[K") #clear line.
 
 # class for handling development debugging
 class _debug:
@@ -65,12 +71,12 @@ def init_default_key_storage ():
     return True
 
 # test functions
-# message.success ('Yep')
-# message.error ('Nope')
-# message.prompt ('Prompt')
+#message.success ('This is in green  ')
+#message.error ('This is in red')
+#message.prompt ('This is in blue')
 
-# debug.success ('Yep')
-# debug.error ('Nope')
-# debug.prompt ('Prompt')
+#debug.success ('Yep')
+#debug.error ('Nope')
+#debug.prompt ('Prompt')
 
 # print(init_default_key_storage())
