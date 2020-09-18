@@ -10,6 +10,7 @@ from keys_init import init_function
 def checkEnc(filename):
     return jsonToDict(filename)
 
+# main menu hub of CLIK
 def main_menu(args):
     # print(args)
     if args[0].lower() == 'init':
@@ -63,7 +64,7 @@ def main_menu(args):
             else:
                 message.error(fname + ' is encrypted')
 
-    
 
+# main function
 if __name__ == "__main__":
     main_menu(sys.argv[1:])
