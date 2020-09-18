@@ -16,7 +16,7 @@ def main_menu(args):
         init_function()
     elif args[0].lower() == '--help':
         help()
-    elif args[0].lower() == 'version':
+    elif args[0].lower() == '--version':
         version()
     else:
         fname = args[0]
