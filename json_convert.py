@@ -17,12 +17,12 @@ api_val = {
 
 #function to convert JSON to dictionary and print
 def jsonToDict(filename):
-    #try:
+    try:
         with open(filename,'r') as fh:
             json_str = fh.read()
             json_value = json.loads(json_str)
         return json_value
-    #except:
+    except:
         return False
 
 
