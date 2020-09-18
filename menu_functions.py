@@ -1,11 +1,9 @@
 from utils import message, debug, init_default_key_storage, printy, STORAGE_DIR, STORE_KEY_F
 from json_convert import jsonToDict, dictToJson, display_json
 
-fileName = 'test_data/test_api_keys.json'
-display_json (fileName)
 
 def add(fileName):
-    dictkeys = jsonToDict('test_data/test_api_keys.json')
+    dictkeys = jsonToDict(fileName)
 
     def getKeyValue(keyName):
         key = message.prompt(keyName + ' value')
@@ -22,7 +20,7 @@ def add(fileName):
         elif (keyName==''):
             break
     try:
-        dictToJson(dictkeys,'test_data/test_api_keys.json')
+        dictToJson(dictkeys, fileName)
         message.success('New keys added successfully!')
     except:
         message.error('Some error occured!')
@@ -30,7 +28,7 @@ def add(fileName):
 
 
 def subtract(fileName):
-    dictkeys = jsonToDict('test_data/test_api_keys.json')
+    dictkeys = jsonToDict(fileName)
 
     def removeKeyValue(keyName):
         try:
@@ -47,7 +45,7 @@ def subtract(fileName):
             break
     
     try:
-        dictToJson(dictkeys,'test_data/test_api_keys.json')
+        dictToJson(dictkeys, fileName)
         message.success('Keys removed successfully!')
     except:
         message.error('Some error occured!')
@@ -55,7 +53,7 @@ def subtract(fileName):
     
 
 def modify(fileName):
-    dictkeys = jsonToDict('test_data/test_api_keys.json')
+    dictkeys = jsonToDict(fileName)
 
     def modifyKeyValue(keyName):
         if keyName in dictkeys:
@@ -77,7 +75,7 @@ def modify(fileName):
             break
     
     try:
-        dictToJson(dictkeys,'test_data/test_api_keys.json')
+        dictToJson(dictkeys,fileName)
         message.success('Keys modified successfully!')
     except:
         message.error('Some error occured!')

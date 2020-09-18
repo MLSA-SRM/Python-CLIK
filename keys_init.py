@@ -1,5 +1,6 @@
 from utils import message, debug, init_default_key_storage, printy, STORAGE_DIR, STORE_KEY_F
-from encrypt import os, keygen, storeKey
+from encrypt import os, keygen, storeKey, encryption
+from json_convert import dictToJson
 
 # function to get filename for holding keys from user
 def get_filename_from_user():
@@ -67,9 +68,13 @@ def init_function():
         tokendict = get_keys_from_user()
         enc_key = generate_encryption()
 
-        message.success("Filename: " + filename)
+        if dictToJson(tokendict, filename):
+            if encryption(enc_key, filename):
+                message.success("Filename: " + filename)
+        else:
+            message.error("Filename: " + filename)
         message.success("Keys Added: ")
         printy(tokendict, indentation=4)
 
 
-init_function()
+# init_function()
