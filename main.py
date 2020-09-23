@@ -1,64 +1,70 @@
-from encrypt import encryption, decryption
+import sys
+from encrypt import encryption, decryption, getKey
 from json_convert import  jsonToDict
-from utils import message
-from keys_init import get_filename_from_user, generate_encryption
+from utils import message, STORAGE_DIR, STORE_KEY_F
 from menu_functions import add, subtract, modify
 from helpVersion import help, version
+from keys_init import init_function
 
-def main_menu():
-    message.success("1)Type  ""add"" to add a key to the existing API keys. \n Type ""sub"" to Subtract a key to the existing API keys. \n Type ""mod"" to modify your Api keys \n Type ""Encrypt"" to Encrypt your Keys \n Type ""Decrypt"" to decrypt your keys \n Type ""help""to get help\n Type ""version"" to know the current version")
-    input= message.prompt("Enter your choice")
-    filename= message.prompt("Enter file name")
-    if(input=="add"):
-        s= jsonToDict(filename)
-        if(s == False):
-            key1=message.prompt("enter the key")
-            decryption(key1, filename)
-            add(filename)
-            encryption(key1, filename)
-        else:
-            add(filename)
-    elif (input=="sub"):
-        s= jsonToDict(filename)
-        if(s == False):
-            key1=message.prompt("enter the key")
-            decryption(key1, filename)
-            subtract(filename)
-            encryption(key1, filename)
-        else:
-            subtract(filename)
-    elif (input=="mod"):
-        s= jsonToDict(filename)
-        if(s == False):
-            key1=message.prompt("enter the key")
-            decryption(key1, filename)
-            modify(filename)
-            encryption(key1, filename)
-        else:
-            modify(filename)
-                
-    elif (input=="Encrypt"):
-        s= jsonToDict(filename)
-                
-        if(s == False):
-            message.success("The data is  encrypted")
-        else:
-            key1=message.prompt("enter the key")
-            message.success("The data was not encrypted")
-            encryption(key1, filename)
-            #print("The Json is now encrypted")
-                
-    elif (input=="Decrypt"):
-        s= jsonToDict(filename)
-                
-        if(s == False):
-            key1=message.prompt("enter the key")
-            decryption(key1, filename)
-                    
-        else:
-            message.success("The data is not encrypted")
-    elif(input=="help"):
+# check encrypted
+def checkEnc(filename):
+    return jsonToDict(filename)
+
+# main menu hub of CLIK
+def main_menu(args):
+    # print(args)
+    if args[0].lower() == 'init':
+        init_function()
+    elif args[0].lower() == '--help':
         help()
-    elif(input=="version"):
+    elif args[0].lower() == '--version':
         version()
-main_menu()
+    else:
+        fname = args[0]
+        cmd = args[1]
+
+        # encrypt file
+        if cmd.lower() == 'enc':
+            if checkEnc(fname) != False:
+                keyFname = message.prompt('File with key for description (' + STORAGE_DIR + '/' + STORE_KEY_F + '): ')
+                key = getKey() if keyFname == '' else getKey(keyFname)
+                encryption(key, fname)
+                message.success(fname + ' is now encrypted')
+            else:
+                message.error(fname + ' is already encrypted')
+
+        # decrypt file
+        elif cmd.lower() == 'dec':
+            if checkEnc(fname) != False:
+                message.error(fname + ' is already decrypted')
+            else:
+                keyFname = message.prompt('File with key for description (' + STORAGE_DIR + '/' + STORE_KEY_F + '): ')
+                key = getKey() if keyFname == '' else getKey(keyFname)
+                decryption(key, fname)
+                message.success(fname + ' is now decrypted')
+
+        # add new keys
+        elif cmd.lower() == 'add':
+            if checkEnc(fname) != False:
+                add(fname)
+            else:
+                message.error(fname + ' is encrypted')
+        
+        # subtract keys
+        elif cmd.lower() == 'sub':
+            if checkEnc(fname) != False:
+                subtract(fname)
+            else:
+                message.error(fname + ' is encrypted')
+
+        # subtract keys
+        elif cmd.lower() == 'mod':
+            if checkEnc(fname) != False:
+                modify(fname)
+            else:
+                message.error(fname + ' is encrypted')
+
+
+# main function
+if __name__ == "__main__":
+    main_menu(sys.argv[1:])
