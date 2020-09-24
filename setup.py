@@ -7,7 +7,7 @@ Usage:
 
 from setuptools import setup
 
-APP = ['keys_init.py']
+APP = ['main.py']
 DATA_FILES = []
 OPTIONS = {}
 
