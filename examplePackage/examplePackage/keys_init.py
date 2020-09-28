@@ -1,6 +1,6 @@
-from utils import message, debug, init_default_key_storage, printy, STORAGE_DIR, STORE_KEY_F
-from encrypt import os, keygen, storeKey, encryption
-from json_convert import dictToJson
+from examplePackage.utils import message, debug, init_default_key_storage, printy, STORAGE_DIR, STORE_KEY_F
+from examplePackage.encrypt import os, keygen, storeKey, encryption
+from examplePackage.json_convert import dictToJson
 
 # function to get filename for holding keys from user
 def get_filename_from_user():

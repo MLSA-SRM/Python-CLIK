@@ -1,5 +1,6 @@
+#!/usr/bin/env python
 import json
-from utils import message, debug, printy
+from examplePackage.utils import message, debug, printy
 
 #sample api keys
 api_val = {

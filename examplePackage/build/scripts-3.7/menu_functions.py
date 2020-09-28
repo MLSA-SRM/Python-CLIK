@@ -1,5 +1,6 @@
-from utils import message, debug, init_default_key_storage, printy, STORAGE_DIR, STORE_KEY_F
-from json_convert import jsonToDict, dictToJson, display_json
+#!/usr/bin/env python
+from examplePackage.utils import message, debug, init_default_key_storage, printy, STORAGE_DIR, STORE_KEY_F
+from examplePackage.json_convert import jsonToDict, dictToJson, display_json
 
 
 def add(fileName):

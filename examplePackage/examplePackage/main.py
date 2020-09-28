@@ -1,17 +1,17 @@
 import sys
-from encrypt import encryption, decryption, getKey
-from json_convert import  jsonToDict
-from utils import message, STORAGE_DIR, STORE_KEY_F
-from menu_functions import add, subtract, modify
-from helpVersion import help, version
-from keys_init import init_function
+from examplePackage.encrypt import encryption, decryption, getKey
+from examplePackage.json_convert import  jsonToDict
+from examplePackage.utils import message, STORAGE_DIR, STORE_KEY_F
+from examplePackage.menu_functions import add, subtract, modify
+from examplePackage.helpVersion import help, version
+from examplePackage.keys_init import init_function
 
 # check encrypted
 def checkEnc(filename):
     return jsonToDict(filename)
 
 # main menu hub of CLIK
-def main_menu(args):
+def main_menu(args = sys.argv[1:]):
     # print(args)
     if args[0].lower() == 'init':
         init_function()
