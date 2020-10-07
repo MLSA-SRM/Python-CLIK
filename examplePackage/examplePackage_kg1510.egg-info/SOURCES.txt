@@ -1,0 +1,9 @@
+README.md
+setup.py
+examplePackage/__init__.py
+examplePackage/oneMoreScript.py
+examplePackage/testprinter.py
+examplePackage_kg1510.egg-info/PKG-INFO
+examplePackage_kg1510.egg-info/SOURCES.txt
+examplePackage_kg1510.egg-info/dependency_links.txt
+examplePackage_kg1510.egg-info/top_level.txt
