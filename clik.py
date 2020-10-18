@@ -1,3 +1,4 @@
+import os
 import sys
 from encrypt import encryption, decryption, getKey
 from json_convert import  jsonToDict
@@ -21,15 +22,26 @@ def main_menu(args):
             help()
         elif args[0].lower() == '--version':
             version()
-        else:
+        elif len(args) == 2:
             fname = args[0]
+
+            # check if file exists
+            if not os.path.isfile(fname):
+                message.error(f'{fname} not found')
+                help()
+                return
+
             cmd = args[1]
 
             # encrypt file
             if cmd.lower() == 'enc':
                 if checkEnc(fname) != False:
-                    keyFname = message.prompt('File with key for description (' + STORAGE_DIR + '/' + STORE_KEY_F + '): ')
-                    key = getKey() if keyFname == '' else getKey(keyFname)
+                    shouldLoad = message.prompt('Load key from memory? (Y/n): ')
+                    if shouldLoad.lower() == 'y' or shouldLoad.lower() == '':
+                        keyFname = message.prompt('File with key for decryption (' + STORAGE_DIR + '/' + STORE_KEY_F + '): ')
+                        key = getKey() if keyFname == '' else getKey(keyFname)
+                    elif shouldLoad.lower() == 'n':
+                        key = message.prompt('Key for encryption: ')
                     encryption(key, fname)
                     message.success(fname + ' is now encrypted')
                 else:
@@ -40,8 +52,12 @@ def main_menu(args):
                 if checkEnc(fname) != False:
                     message.error(fname + ' is already decrypted')
                 else:
-                    keyFname = message.prompt('File with key for description (' + STORAGE_DIR + '/' + STORE_KEY_F + '): ')
-                    key = getKey() if keyFname == '' else getKey(keyFname)
+                    shouldLoad = message.prompt('Load key from memory? (Y/n): ')
+                    if shouldLoad.lower() == 'y' or shouldLoad.lower() == '':
+                        keyFname = message.prompt('File with key for decryption (' + STORAGE_DIR + '/' + STORE_KEY_F + '): ')
+                        key = getKey() if keyFname == '' else getKey(keyFname)
+                    elif shouldLoad.lower() == 'n':
+                        key = message.prompt('Key for decryption: ')
                     decryption(key, fname)
                     message.success(fname + ' is now decrypted')
 
@@ -65,6 +81,15 @@ def main_menu(args):
                     modify(fname)
                 else:
                     message.error(fname + ' is encrypted')
+            
+            # invalid arguments
+            else:
+                message.error('Invalid Argument')
+                help()
+        # invalid arguments
+        else:
+            message.error('Invalid Argument')
+            help()
 
 # main function
 if __name__ == "__main__":
