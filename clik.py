@@ -1,3 +1,4 @@
+import os
 import sys
 from encrypt import encryption, decryption, getKey
 from json_convert import  jsonToDict
@@ -21,8 +22,15 @@ def main_menu(args):
             help()
         elif args[0].lower() == '--version':
             version()
-        else:
+        elif len(args) == 2:
             fname = args[0]
+
+            # check if file exists
+            if not os.path.isfile(fname):
+                message.error(f'{fname} not found')
+                help()
+                return
+
             cmd = args[1]
 
             # encrypt file
@@ -73,6 +81,15 @@ def main_menu(args):
                     modify(fname)
                 else:
                     message.error(fname + ' is encrypted')
+            
+            # invalid arguments
+            else:
+                message.error('Invalid Argument')
+                help()
+        # invalid arguments
+        else:
+            message.error('Invalid Argument')
+            help()
 
 # main function
 if __name__ == "__main__":
