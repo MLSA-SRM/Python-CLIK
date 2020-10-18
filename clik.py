@@ -43,7 +43,6 @@ def main_menu(args):
                     elif shouldLoad.lower() == 'n':
                         key = message.prompt('Key for encryption: ')
                     encryption(key, fname)
-                    message.success(fname + ' is now encrypted')
                 else:
                     message.error(fname + ' is already encrypted')
 
@@ -59,7 +58,6 @@ def main_menu(args):
                     elif shouldLoad.lower() == 'n':
                         key = message.prompt('Key for decryption: ')
                     decryption(key, fname)
-                    message.success(fname + ' is now decrypted')
 
             # add new keys
             elif cmd.lower() == 'add':
