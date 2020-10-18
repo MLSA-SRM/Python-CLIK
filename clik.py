@@ -28,8 +28,12 @@ def main_menu(args):
             # encrypt file
             if cmd.lower() == 'enc':
                 if checkEnc(fname) != False:
-                    keyFname = message.prompt('File with key for description (' + STORAGE_DIR + '/' + STORE_KEY_F + '): ')
-                    key = getKey() if keyFname == '' else getKey(keyFname)
+                    shouldLoad = message.prompt('Load key from memory? (Y/n): ')
+                    if shouldLoad.lower() == 'y' or shouldLoad.lower() == '':
+                        keyFname = message.prompt('File with key for decryption (' + STORAGE_DIR + '/' + STORE_KEY_F + '): ')
+                        key = getKey() if keyFname == '' else getKey(keyFname)
+                    elif shouldLoad.lower() == 'n':
+                        key = message.prompt('Key for encryption: ')
                     encryption(key, fname)
                     message.success(fname + ' is now encrypted')
                 else:
@@ -40,8 +44,12 @@ def main_menu(args):
                 if checkEnc(fname) != False:
                     message.error(fname + ' is already decrypted')
                 else:
-                    keyFname = message.prompt('File with key for description (' + STORAGE_DIR + '/' + STORE_KEY_F + '): ')
-                    key = getKey() if keyFname == '' else getKey(keyFname)
+                    shouldLoad = message.prompt('Load key from memory? (Y/n): ')
+                    if shouldLoad.lower() == 'y' or shouldLoad.lower() == '':
+                        keyFname = message.prompt('File with key for decryption (' + STORAGE_DIR + '/' + STORE_KEY_F + '): ')
+                        key = getKey() if keyFname == '' else getKey(keyFname)
+                    elif shouldLoad.lower() == 'n':
+                        key = message.prompt('Key for decryption: ')
                     decryption(key, fname)
                     message.success(fname + ' is now decrypted')
 
