@@ -1,0 +1,3 @@
+[console_scripts]
+clik = examplePackage.main:main_menu
+
