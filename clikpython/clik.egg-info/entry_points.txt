@@ -1,0 +1,3 @@
+[console_scripts]
+clik = clikpython.clik:main_menu
+
