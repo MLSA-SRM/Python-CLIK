@@ -7,5 +7,5 @@ def version():
 
 
 #test functions
-help()
+#help()
 #version()
