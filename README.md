@@ -17,24 +17,24 @@ You can use the CLIK to also add, remove or modify keys, as and when required.
 | Python 3 | 3.7.1 |
 | Visual Studio Code| 1.50.1|
 
-## Support:
+## Tested With:
 | Operating System | Version(s) |
 |----------|-------------|
 | Microsoft Windows | Windows 10 |
 | Apple macOS | 10.15(Catalina), Beta 11.0(Big Sur) |
 
-## Installation
+## Installation:
 You can either clone this repository or install it via pip
 ```python
-pip install printy
+pip install clik
 ```
 
-## Usage
+## Usage:
 Once you install CLIK, a short and concise documentation can be found br running the following command on your console:
 ```python
 clik
 ```
-## Initialising the JSON File
+## Initialising the JSON File:
 To create a new file to store keys type the following command in your console:
 ```python
 clik init
@@ -43,8 +43,8 @@ Now, you can specify all the keys you want to add in a step by step fashion.
 CLIK will automatically encrypt the file for you and generate your encryption key.
 Now you can either store the key locally or write it down for safekeeping.
 So now, your JSON file containing all your keys is ready for upload on your repository.
-## Adding/Subtracting Keys
-To add new keys to an existing json file, type the following commands in your console:
+## Adding/Subtracting Keys:
+To add new keys to an existing JSON file, type the following command in your console:
 <br>
 ### For Adding Keys:
 ```python
@@ -55,3 +55,18 @@ clik FILENAME add
 ```python
 clik FILENAME subtract
 ```
+## Modify Keys:
+To modify any key in an existing JSON file, type the following command in your console:
+```python
+clik FILENAME modify
+```
+
+## Dependancies:
+* [printy](https://github.com/edraobdu/printy)
+* [Python 3](https://python.org/)
+
+## Contributors:
+* [Mihir Singh](https://github.com/mihirs16)
+* [Anushka Agarwal](https://github.com/anushka17agarwal)
+* [Kushagra Gupta](https://github.com/KG-1510)
+* [Ariz Siddiqui](https://github.com/arizsiddiqui)
