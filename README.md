@@ -91,12 +91,12 @@ clik --version
 ```
 > Note: Before uploading the JSON file containing your Keys to any VCS, it is recommended to store your .key file containing your Key to decrypt this encrypted JSON file in .gitignore of any other directory of your computer.
 
-## Dependancies:
+## Dependancies
 * [printy](https://github.com/edraobdu/printy)
 * [Python 3](https://python.org/)
 * [cryptography](https://github.com/pyca/cryptography)
 
-## Contributors:
+## Contributors
 * [Mihir Singh](https://github.com/mihirs16)
 * [Anushka Agarwal](https://github.com/anushka17agarwal)
 * [Kushagra Gupta](https://github.com/KG-1510)
