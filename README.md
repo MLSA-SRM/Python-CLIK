@@ -76,7 +76,7 @@ This will ask for any existing Keys to encrypt the JSON file with. If you have a
 This will ask for any existing Keys to decrypt the JSON file with. If you have an existing Key,
 continue normally. Else, provide a path for the Key to be used for decryption.
 
- ### Note: For any kind of operation on an encrypted JSON file, you need to decrypt it first.
+> Note: For any kind of operation on an encrypted JSON file, you need to decrypt it first.
 
 ## Help:
 To check the syntax for any of the commands or their function, type the following command in your console:
