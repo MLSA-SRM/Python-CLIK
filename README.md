@@ -26,7 +26,7 @@ You can use the CLIK to also add, remove or modify keys, as and when required.
 ## Installation
 You can either clone this repository or install it via pip
 ```python
-pip install clik
+pip install python-clik
 ```
 
 ## Usage

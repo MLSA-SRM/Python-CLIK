@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="clik",
+    name="python-clik",
     version="1.0",
     entry_points={
         'console_scripts':[
