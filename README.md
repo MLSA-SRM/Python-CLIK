@@ -11,30 +11,30 @@ CLIK provides you with a command line interface that allows you to store your AP
 You are provided with an option to either store this key locally in a file, or making a note of it to store it anyway you like.
 The encrypted JSON file can safely be uploaded to VCS repositories, meaning access will only be granted to those who have been given the JSON decryption key by you.
 You can use the CLIK to also add, remove or modify keys, as and when required.
-## Built With:
+## Built With
 | Software | Version |
 |----------|---------|
 | Python 3 | 3.7.1 |
 | Visual Studio Code| 1.50.1|
 
-## Tested With:
+## Tested With
 | Operating System | Version(s) |
 |----------|-------------|
 | Microsoft Windows | Windows 10 |
 | Apple macOS | 10.15(Catalina), Beta 11.0(Big Sur) |
 
-## Installation:
+## Installation
 You can either clone this repository or install it via pip
 ```python
 pip install clik
 ```
 
-## Usage:
+## Usage
 Once you install CLIK, a short and concise documentation can be found br running the following command on your console:
 ```python
 clik
 ```
-## Initialising the JSON File:
+## Initialising the JSON File
 To create a new file to store keys type the following command in your console:
 ```python
 clik init
@@ -43,24 +43,24 @@ Now, you can specify all the keys you want to add in a step by step fashion.
 CLIK will automatically encrypt the file for you and generate your encryption key.
 Now you can either store the key locally or write it down for safekeeping.
 So now, your JSON file containing all your keys is ready for upload on your repository.
-## Adding/Subtracting Keys:
+## Adding/Subtracting Keys
 To add new keys to an existing JSON file, type the following command in your console:
 <br>
-### For Adding Keys:
+### For Adding Keys
 ```python
 clik FILENAME add
 ```
 
-### For Subtracting Keys:
+### For Subtracting Keys
 ```python
 clik FILENAME subtract
 ```
-## For Modifying Keys:
+## For Modifying Keys
 To modify any key in an existing JSON file, type the following command in your console:
 ```python
 clik FILENAME modify
 ```
-## For Encrypting the Keys File:
+## For Encrypting the Keys File
 To encrypt the JSON file, type the following command in your console:
 ```python
 clik FILENAME enc
@@ -68,7 +68,7 @@ clik FILENAME enc
 This will ask for any existing Keys to encrypt the JSON file with. If you have an existing Key,
  continue. Else, you can specify/create a new key for this new encryption.
 
- ## For Decrypting the Keys File:
+ ## For Decrypting the Keys File
  To decrypt the JSON file, type the following command in your console:
  ```python
  clik FILENAME dec
@@ -78,7 +78,7 @@ continue normally. Else, provide a path for the Key to be used for decryption.
 
 > Note: For any kind of operation on an encrypted JSON file, you need to decrypt it first.
 
-## Help:
+## Help
 To check the syntax for any of the commands or their function, type the following command in your console:
 ```python
 clik --help
