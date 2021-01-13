@@ -55,15 +55,47 @@ clik FILENAME add
 ```python
 clik FILENAME subtract
 ```
-## Modify Keys:
+## For Modifying Keys:
 To modify any key in an existing JSON file, type the following command in your console:
 ```python
 clik FILENAME modify
 ```
+## For Encrypting the Keys File:
+To encrypt the JSON file, type the following command in your console:
+```python
+clik FILENAME enc
+```
+This will ask for any existing Keys to encrypt the JSON file with. If you have an existing Key,
+ continue. Else, you can specify/create a new key for this new encryption.
+
+ ## For Decrypting the Keys File:
+ To decrypt the JSON file, type the following command in your console:
+ ```python
+ clik FILENAME dec
+ ```
+This will ask for any existing Keys to decrypt the JSON file with. If you have an existing Key,
+continue normally. Else, provide a path for the Key to be used for decryption.
+
+ ### Note: For any kind of operation on an encrypted JSON file, you need to decrypt it first.
+
+## Help:
+To check the syntax for any of the commands or their function, type the following command in your console:
+```python
+clik --help
+```
+
+## Version
+To check the version of CLIK you're running, type the following command in your console:
+```python
+clik --version
+```
+
+### Note: Before uploading the JSON file containing your Keys to any VCS, it is recommended to store your .key file containing your Key to decrypt this encrypted JSON file in .gitignore of any other directory of your computer.
 
 ## Dependancies:
 * [printy](https://github.com/edraobdu/printy)
 * [Python 3](https://python.org/)
+* [cryptography](https://github.com/pyca/cryptography)
 
 ## Contributors:
 * [Mihir Singh](https://github.com/mihirs16)
