@@ -89,8 +89,7 @@ To check the version of CLIK you're running, type the following command in your 
 ```python
 clik --version
 ```
-
-### Note: Before uploading the JSON file containing your Keys to any VCS, it is recommended to store your .key file containing your Key to decrypt this encrypted JSON file in .gitignore of any other directory of your computer.
+> Note: Before uploading the JSON file containing your Keys to any VCS, it is recommended to store your .key file containing your Key to decrypt this encrypted JSON file in .gitignore of any other directory of your computer.
 
 ## Dependancies:
 * [printy](https://github.com/edraobdu/printy)
