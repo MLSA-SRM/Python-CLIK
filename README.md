@@ -21,7 +21,7 @@ You can use the CLIK to also add, remove or modify keys, as and when required.
 | Operating System | Version(s) |
 |----------|-------------|
 | Microsoft Windows | Windows 10 |
-| Apple macOS | 10.15(Catalina), Beta 11.0(Big Sur) |
+| Apple macOS | 10.15(Catalina), 11.0(Big Sur) |
 
 ## Installation
 You can either clone this repository or install it via pip
